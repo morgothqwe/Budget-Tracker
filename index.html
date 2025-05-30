@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <script type="module" src="./src/js/controller.js"></script>
+    <title>Budget-Tracker</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Budget Tracker</h1>
+    </header>
+
+    <section class="bt-wrapper">
+      <div class="bt-main">
+        <div class="bt-main--title">
+          <span>Amount</span>
+          <span>Payment Type</span>
+          <span>Description</span>
+          <span></span>
+          <span>Status</span>
+        </div>
+
+        <form class="bt-main--form">
+          <input type="number" name="" id="" class="bt-main--amount" />
+
+          <select name="status" class="bt-main--status">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+
+          <input type="text" name="" id="" class="bt-main--description" />
+          <input type="button" value="Proceed" class="bt-main--proceed" />
+        </form>
+
+        <!-- <div class="bt-main--transaction">
+          <span>$1298.00</span>
+          <span>Income</span>
+          <span>Sell html/css template</span>
+          <span></span>
+          <span>Success</span>
+        </div> -->
+      </div>
+      <div class="bt-balance">
+        <div class="bt-balance--income">
+          <span>Income</span>
+          <span>$0.00</span>
+        </div>
+        <div class="bt-balance--expense">
+          <span>Expense</span>
+          <span>$0.00</span>
+        </div>
+        <div class="bt-balance--total">
+          <span>Balance</span>
+          <span>$0.00</span>
+        </div>
+      </div>
+      <div class="bt-summary">
+        <span class="bt-summary--title">Activity</span>
+        <div class="bt-pending">
+          <span class="bt-pending--title">Pending</span>
+        </div>
+        <div class="bt-success">
+          <span class="bt-success--title">Success</span>
+        </div>
+        <div class="bt-denied">
+          <span class="bt-denied--title">Denied</span>
+        </div>
+
+        <!-- <div class="bt-activity">
+          <span class="bt-activity--amount">$1000.00</span>
+          <span class="bt-activity--type">Income</span>
+          <span class="bt-activity--status">Success</span>
+        </div> -->
+      </div>
+    </section>
+  </body>
+</html>

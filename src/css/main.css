@@ -1,0 +1,172 @@
+/* RESET */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cormorant Garamond", sans-serif;
+  line-height: 1;
+  font-weight: 300;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+/* VARIABLES */
+:root {
+  --color-bg: #061130;
+  --color-card-bg: #192957;
+  --color-header-table: #182653;
+  --color-text-primary: #cdd0d4;
+  --color-text-secondary: #9098b0;
+  --color-text-highlight: #7395e5;
+  --color-success: #48bb78;
+  --color-error: #f56565;
+}
+
+/* LAYOUT */
+.header {
+  display: flex;
+  margin: 2.4rem;
+}
+
+/* .bt-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 60rem;
+  column-gap: 2.4rem;
+  row-gap: 2.4rem;
+  margin-inline: 2.4rem;
+} */
+
+.bt-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr 1fr;
+  row-gap: 2.4rem;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "bt-main bt-main bt-balance"
+    "bt-main bt-main bt-summary"
+    "bt-main bt-main .";
+}
+
+.bt-main {
+  grid-area: bt-main;
+}
+
+.bt-balance {
+  grid-area: bt-balance;
+
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.8rem;
+  padding: 2.4rem;
+  border-radius: 0.4rem;
+
+  background-color: var(--color-card-bg);
+}
+
+.bt-summary {
+  grid-area: bt-summary;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 1.2rem;
+  padding: 1.8rem;
+  border-radius: 0.4rem;
+
+  background-color: var(--color-card-bg);
+}
+
+.bt-main,
+.bt-balance,
+.bt-summary {
+  margin-inline: 2.4rem;
+}
+
+.bt-main {
+  align-items: start;
+  padding-top: 0;
+}
+
+.bt-main--title,
+.bt-main--form,
+.bt-main--transaction {
+  display: grid;
+  grid-template-columns: 10rem 12rem 24rem 10rem 1fr;
+  column-gap: 1.8rem;
+  margin-block-end: 1.8rem;
+}
+
+.bt-main--title {
+  font-size: 1.8rem;
+  background-color: var(--color-header-table);
+  color: var(--color-text-secondary);
+  padding: 1rem;
+}
+
+.bt-main--title span:last-child,
+.bt-main--transaction span:last-child {
+  justify-self: center;
+}
+
+.bt-main--amount {
+  height: 2.4rem;
+}
+
+.bt-main--transaction {
+  font-size: 1.8rem;
+}
+
+.bt-balance--income,
+.bt-balance--expense,
+.bt-balance--total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.bt-balance--income span:first-child,
+.bt-balance--expense span:first-child,
+.bt-balance--total span:first-child {
+  font-weight: 600;
+}
+
+.bt-summary--title {
+  grid-column: 1 / -1;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.bt-pending,
+.bt-success,
+.bt-denied {
+  margin-bottom: 1.8rem;
+}
+
+.bt-pending--title,
+.bt-success--title,
+.bt-denied--title {
+  font-size: 1.4rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--color-text-highlight);
+}
+
+.bt-activity {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 10rem 8rem 6rem;
+  gap: 2.4rem;
+  font-size: 1.4rem;
+}
