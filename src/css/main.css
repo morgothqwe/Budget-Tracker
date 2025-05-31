@@ -27,6 +27,7 @@ body {
   --color-text-primary: #cdd0d4;
   --color-text-secondary: #9098b0;
   --color-text-highlight: #7395e5;
+  --color-row-highlight: #222e4f;
   --color-success: #48bb78;
   --color-error: #f56565;
 }
@@ -96,13 +97,26 @@ body {
   padding-top: 0;
 }
 
+.bt-main--form,
+.bt-main--title {
+  margin-block-end: 3.2rem;
+}
+
 .bt-main--title,
 .bt-main--form,
 .bt-main--transaction {
   display: grid;
   grid-template-columns: 10rem 12rem 24rem 10rem 1fr;
   column-gap: 1.8rem;
-  margin-block-end: 1.8rem;
+}
+
+.bt-main--transaction span {
+  font-size: 1.4rem;
+  padding: 0.6rem;
+}
+
+.bt-main--transaction:nth-child(odd) {
+  background-color: var(--color-row-highlight);
 }
 
 .bt-main--title {
@@ -123,6 +137,7 @@ body {
 
 .bt-main--transaction {
   font-size: 1.8rem;
+  margin-block: 0.6rem;
 }
 
 .bt-balance--income,
@@ -139,6 +154,20 @@ body {
 .bt-balance--expense span:first-child,
 .bt-balance--total span:first-child {
   font-weight: 600;
+}
+
+.balance-income--amount,
+.balance-expense--amount,
+.balance-total--amount {
+  font-size: 1.4rem;
+}
+
+.balance-income--amount {
+  color: var(--color-success);
+}
+
+.balance-expense--amount {
+  color: var(--color-error);
 }
 
 .bt-summary--title {

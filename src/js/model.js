@@ -13,6 +13,27 @@ export const addTransaction = function (transaction) {
   };
 
   state.transaction.push(newTransaction);
-  console.log(state.transaction);
+
   return newTransaction;
+};
+
+export const totalTransaction = function () {
+  return state.transaction.reduce(
+    (ac, el) => (el.type === "income" ? ac + +el.amount : ac - +el.amount),
+    0
+  );
+};
+
+export const incomeTransaction = function () {
+  return state.transaction.reduce(
+    (ac, el) => (el.type === "income" ? ac + +el.amount : ac),
+    0
+  );
+};
+
+export const expenseTransaction = function () {
+  return state.transaction.reduce(
+    (ac, el) => (el.type === "expense" ? ac + +el.amount : ac),
+    0
+  );
 };

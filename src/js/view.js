@@ -45,6 +45,21 @@ class View {
       .querySelector(".bt-add--transaction")
       .insertAdjacentHTML("afterbegin", markup);
   }
+
+  renderBalance(total, income, expense) {
+    if (total)
+      document.querySelector(
+        ".balance-total--amount"
+      ).textContent = `$${total.toFixed(2)}`;
+    if (expense)
+      document.querySelector(
+        ".balance-expense--amount"
+      ).textContent = `$${expense.toFixed(2)}`;
+    if (income)
+      document.querySelector(
+        ".balance-income--amount"
+      ).textContent = `$${income.toFixed(2)}`;
+  }
 }
 
 export default new View();
