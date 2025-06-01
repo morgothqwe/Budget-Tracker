@@ -3,14 +3,29 @@ import view from "./view";
 
 const controlAddTransaction = function (transaction) {
   const newTransaction = model.addTransaction(transaction);
+  if (!newTransaction) {
+    alert("Invalid transaction amount. Please enter a valid number.");
+    return;
+  }
   view.renderAddTransaction(newTransaction);
   const total = model.totalTransaction();
   const income = model.incomeTransaction();
   const expense = model.expenseTransaction();
   view.renderBalance(total, income, expense);
+  model.setLocalStorage();
 };
 
 const init = function () {
+  // model.clearLocalStorage(); // Uncomment for testing reset
+  model.loadLocalStorage();
+  const transactions = model.getTransaction();
+  if (Array.isArray(transactions) && transactions.length > 0) {
+    transactions.forEach((el) => view.renderAddTransaction(el));
+    const total = model.totalTransaction();
+    const income = model.incomeTransaction();
+    const expense = model.expenseTransaction();
+    view.renderBalance(total, income, expense);
+  }
   view.addHandlerAddTransaction(controlAddTransaction);
 };
 

@@ -27,9 +27,10 @@ class View {
   }
 
   renderAddTransaction(transaction) {
+    if (!transaction) return; // Guard against null
     const markup = `
       <div class="bt-main--transaction" data-id="${transaction.id}">
-        <span>$${transaction.amount}</span>
+        <span>$${transaction.amount.toFixed(2)}</span>
         <span>${transaction.type}</span>
         <span>${transaction.description}</span>
         <span></span>
@@ -47,18 +48,15 @@ class View {
   }
 
   renderBalance(total, income, expense) {
-    if (total)
-      document.querySelector(
-        ".balance-total--amount"
-      ).textContent = `$${total.toFixed(2)}`;
-    if (expense)
-      document.querySelector(
-        ".balance-expense--amount"
-      ).textContent = `$${expense.toFixed(2)}`;
-    if (income)
-      document.querySelector(
-        ".balance-income--amount"
-      ).textContent = `$${income.toFixed(2)}`;
+    document.querySelector(
+      ".bt-balance--total span:last-child"
+    ).textContent = `$${total.toFixed(2)}`;
+    document.querySelector(
+      ".bt-balance--income span:last-child"
+    ).textContent = `$${income.toFixed(2)}`;
+    document.querySelector(
+      ".bt-balance--expense span:last-child"
+    ).textContent = `$${expense.toFixed(2)}`;
   }
 }
 
