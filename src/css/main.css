@@ -176,7 +176,6 @@ body {
   font-weight: 600;
 }
 
-.bt-pending,
 .bt-success,
 .bt-denied {
   margin-bottom: 1.8rem;
@@ -190,7 +189,6 @@ body {
   color: var(--color-error);
 }
 
-.bt-pending--title,
 .bt-success--title,
 .bt-denied--title {
   font-size: 1.4rem;
