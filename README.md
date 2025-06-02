@@ -1,96 +1,68 @@
-Budget Tracker
-A simple web-based application to manage personal finances by tracking income and expense transactions, displaying balances, and filtering transactions by status (Success or Denied). Built with HTML, CSS, and JavaScript, it uses local storage for persistent data and a modular architecture for maintainability.
-Table of Contents
+# Budget Tracker
 
-Features
-Demo
-Installation
-Usage
-Project Structure
-Technologies
-Contributing
-License
+A simple and effective Budget Tracker web application to help you manage your income and expenses. Built using HTML, CSS, and JavaScript, this app allows users to record transactions, view balance updates in real-time, and gain insights into their financial habits.
 
-Features
+## Features
 
-Add Transactions: Input income or expense transactions with amount, type, and description.
-Balance Tracking: Displays total balance, income, and expense for successful transactions.
-Transaction Filtering: View transactions filtered by "Success" or "Denied" status in a summary section.
-Persistent Storage: Saves transactions to local storage for persistence across sessions.
-Responsive Design: Clean, grid-based layout with a dark theme for readability.
-Modular Code: Organized with separate concerns for model, view, and controller.
+- ✅ Add income and expense transactions
+- ✅ Automatically updates total balance, income, and expense
+- ✅ LocalStorage support for data persistence
+- ✅ Responsive and clean user interface
 
-Demo
-https://budget-tracker-keiwan.netlify.app/
+## Technologies Used
 
-Installation
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
 
-Clone the Repository:
-git clone https://github.com/morgothqwe/budget-tracker.git
+## Live Demo
 
-Navigate to the Project Directory:
-cd budget-tracker
+You can try the live version of the app here: [Live Site](https://budget-tracker-keiwan.netlify.app/)
 
-Open the Application:
+## Getting Started
 
-Open index.html in a web browser (e.g., Chrome, Firefox) directly, or
-Serve the project using a local development server (recommended):npx http-server
+To run the project locally:
 
-Then navigate to http://localhost:8080 in your browser.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/morgothqwe/Budget-Tracker.git
+   ```
+2. Navigate into the project directory:
+   ```bash
+   cd Budget-Tracker
+   ```
+3. Open `index.html` in your browser or use a local development server:
+   ```bash
+   # Using VSCode Live Server extension or similar
+   ```
 
-Note: The app uses ES modules, so a local server is required for proper JavaScript module loading.
+## Folder Structure
 
-Usage
+```
+Budget-Tracker/
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+```
 
-Add a Transaction:
-Enter an amount (e.g., 100.50), select the type (Income or Expense), and provide a description.
-Click the "Proceed" button to add the transaction.
-Transactions default to "Success" status and appear in the transaction list.
+## How It Works
 
-View Balances:
-The balance section displays the total balance (income minus expenses for "Success" transactions), total income, and total expenses.
+- Each transaction is recorded with a description and an amount.
+- Positive amounts are treated as income, while negative amounts are treated as expenses.
+- Totals for income, expenses, and current balance are updated and stored in `localStorage`.
+- Data persists across browser sessions.
 
-Filter Transactions:
-Click "Success" or "Denied" in the summary section to view transactions with the respective status.
-Only one filter can be active at a time, and clicking the same filter again does nothing to optimize performance.
+## Contribution
 
-Data Persistence:
-Transactions are saved to the browser's local storage and persist across page reloads.
-To reset data, uncomment the clearLocalStorage call in controller.js (for development purposes).
+Contributions are welcome. To contribute:
 
-Project Structure
-budget-tracker/
-├── index.html # Main HTML file with the app structure
-├── main.css # Styles for layout, theming, and responsiveness
-├── config.js # Configuration file with constants (e.g., local storage key)
-├── model.js # Data management (state, transactions, local storage)
-├── view.js # UI rendering and event handling
-├── controller.js # Connects model and view, handles business logic
-└── README.md # Project documentation
+1. Fork this repository
+2. Create a new branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -m "Add feature"`
+4. Push to the branch: `git push origin feature-name`
+5. Open a pull request
 
-index.html: Defines the app's layout, including transaction form, list, balance, and summary sections.
-main.css: Uses CSS Grid and custom properties for a dark-themed, responsive design.
-config.js: Stores constants like the local storage key (transactions).
-model.js: Manages transaction data, including adding transactions, calculating balances, and handling local storage.
-view.js: Handles DOM manipulation and event listeners for user interactions.
-controller.js: Orchestrates the app by connecting the model and view, initializing the app, and handling user actions.
+## License
 
-Technologies
-
-HTML5: Structure and content.
-CSS3: Styling with CSS Grid and custom properties.
-JavaScript (ES Modules): Logic for transaction management, UI updates, and local storage.
-Local Storage: Persistent storage for transactions.
-
-Contributing
-Contributions are welcome! To contribute:
-
-Fork the repository.
-Create a feature branch (git checkout -b feature/your-feature).
-Commit your changes (git commit -m "Add your feature").
-Push to the branch (git push origin feature/your-feature).
-Open a pull request with a clear description of your changes.
-
-Please ensure your code follows the existing style and includes relevant tests or documentation updates.
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the [MIT License](LICENSE).
