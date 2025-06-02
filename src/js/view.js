@@ -1,11 +1,11 @@
 class View {
-  _payBtn = document.querySelector(".bt-main--proceed");
-  _payAmount = document.querySelector(".bt-main--amount");
-  _payType = document.querySelector(".bt-main--status");
-  _payDescription = document.querySelector(".bt-main--description");
+  _payBtn = document.querySelector(".transaction-submit");
+  _payAmount = document.querySelector(".transaction-amount");
+  _payType = document.querySelector(".transaction-type");
+  _payDescription = document.querySelector(".transaction-description");
 
-  _successTransaction = document.querySelector(".bt-success--title");
-  _deniedTransaction = document.querySelector(".bt-denied--title");
+  _successTransaction = document.querySelector(".summary-success-filter");
+  _deniedTransaction = document.querySelector(".summary-denied-filter");
 
   addHandlerAddTransaction(handler) {
     this._payBtn.addEventListener("click", (e) => {
@@ -36,10 +36,10 @@ class View {
 
         if (e.target === this._successTransaction) {
           document
-            .querySelectorAll(".bt-activity")
+            .querySelectorAll(".summary-row")
             .forEach((el) => el.remove());
-          this._deniedTransaction.classList.remove("bt-summary--selected");
-          this._successTransaction.classList.add("bt-summary--selected");
+          this._deniedTransaction.classList.remove("summary-filter-selected");
+          this._successTransaction.classList.add("summary-filter-selected");
 
           const status = "Success";
           handler(status);
@@ -47,10 +47,10 @@ class View {
           this._deniedTransaction.dataset.clicked = "false";
         } else if (e.target === this._deniedTransaction) {
           document
-            .querySelectorAll(".bt-activity")
+            .querySelectorAll(".summary-row")
             .forEach((el) => el.remove());
-          this._successTransaction.classList.remove("bt-summary--selected");
-          this._deniedTransaction.classList.add("bt-summary--selected");
+          this._successTransaction.classList.remove("summary-filter-selected");
+          this._deniedTransaction.classList.add("summary-filter-selected");
 
           const status = "Denied";
           handler(status);
@@ -62,50 +62,46 @@ class View {
   }
 
   renderAddTransaction(transaction) {
-    if (!transaction) return; // Guard against null
+    if (!transaction) return;
     const markup = `
-      <div class="bt-main--transaction" data-id="${transaction.id}">
+      <div class="transaction-row" data-id="${transaction.id}">
         <span>$${transaction.amount.toFixed(2)}</span>
         <span>${transaction.type}</span>
         <span>${transaction.description}</span>
         <span></span>
         <span class="${
-          transaction.status === "Success"
-            ? "transaction-success"
-            : "transaction-denied"
+          transaction.status === "Success" ? "status-success" : "status-denied"
         }">${transaction.status}</span>
       </div>
     `;
 
     document
-      .querySelector(".bt-add--transaction")
+      .querySelector(".transaction-container")
       .insertAdjacentHTML("afterbegin", markup);
   }
 
   renderBalance(total, income, expense) {
     document.querySelector(
-      ".bt-balance--total span:last-child"
+      ".balance-total span:last-child"
     ).textContent = `$${total.toFixed(2)}`;
     document.querySelector(
-      ".bt-balance--income span:last-child"
+      ".balance-income span:last-child"
     ).textContent = `$${income.toFixed(2)}`;
     document.querySelector(
-      ".bt-balance--expense span:last-child"
+      ".balance-expense span:last-child"
     ).textContent = `$${expense.toFixed(2)}`;
   }
 
   renderSummary(transaction) {
     const markup = `
-      <div class="bt-activity" data-id="${transaction.id}">
-        <span class="bt-activity--amount">${transaction.amount}</span>
-        <span class="bt-activity--type">${transaction.type}</span>
-        <span class="bt-activity--status">${transaction.status}</span>
+      <div class="summary-row" data-id="${transaction.id}">
+        <span class="summary-row-amount">${transaction.amount}</span>
+        <span class="summary-row-type">${transaction.type}</span>
+        <span class="summary-row-status">${transaction.status}</span>
       </div>
     `;
 
-    document
-      .querySelector(".bt-summary")
-      .insertAdjacentHTML("beforeend", markup);
+    document.querySelector(".summary").insertAdjacentHTML("beforeend", markup);
   }
 }
 

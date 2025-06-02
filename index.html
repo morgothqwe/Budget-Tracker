@@ -3,18 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget Tracker</title>
     <link rel="stylesheet" href="./src/css/main.css" />
-    <script type="module" src="./src/js/controller.js"></script>
-    <title>Budget-Tracker</title>
   </head>
   <body>
-    <header class="header">
+    <div class="header">
       <h1>Budget Tracker</h1>
-    </header>
+    </div>
 
-    <section class="bt-wrapper">
-      <div class="bt-main">
-        <div class="bt-main--title">
+    <div class="budget-tracker">
+      <div class="transaction-list">
+        <div class="transaction-header">
           <span>Amount</span>
           <span>Payment Type</span>
           <span>Description</span>
@@ -22,57 +21,46 @@
           <span>Status</span>
         </div>
 
-        <form class="bt-main--form">
-          <input type="number" name="" id="" class="bt-main--amount" />
-
-          <select name="status" class="bt-main--status">
+        <div class="transaction-form">
+          <input type="number" class="transaction-amount" step="0.01" />
+          <select class="transaction-type">
             <option value="income">Income</option>
             <option value="expense">Expense</option>
           </select>
-
-          <input type="text" name="" id="" class="bt-main--description" />
-          <input type="button" value="Proceed" class="bt-main--proceed" />
-        </form>
-
-        <div class="bt-add--transaction">
-          <!-- <div class="bt-main--transaction">
-            <span>$1298.00</span>
-            <span>Income</span>
-            <span>Sell html/css template</span>
-            <span></span>
-            <span>Success</span>
-          </div> -->
+          <input type="text" class="transaction-description" />
+          <span></span>
+          <button class="transaction-submit">Proceed</button>
         </div>
+
+        <div class="transaction-container"></div>
       </div>
-      <div class="bt-balance">
-        <div class="bt-balance--income">
+
+      <div class="balance">
+        <div class="balance-income">
           <span>Income</span>
-          <span class="balance-income--amount">$0.00</span>
+          <span class="balance-income-amount">$0.00</span>
         </div>
-        <div class="bt-balance--expense">
+        <div class="balance-expense">
           <span>Expense</span>
-          <span class="balance-expense--amount">$0.00</span>
+          <span class="balance-expense-amount">$0.00</span>
         </div>
-        <div class="bt-balance--total">
+        <div class="balance-total">
           <span>Balance</span>
-          <span class="balance-total--amount">$0.00</span>
+          <span class="balance-total-amount">$0.00</span>
         </div>
       </div>
-      <div class="bt-summary">
-        <span class="bt-summary--title">Activity</span>
-        <div class="bt-success">
-          <span class="bt-success--title" data-clicked="false">Success</span>
-        </div>
-        <div class="bt-denied">
-          <span class="bt-denied--title" data-clicked="false">Denied</span>
-        </div>
 
-        <!-- <div class="bt-activity">
-          <span class="bt-activity--amount">$1000.00</span>
-          <span class="bt-activity--type">Income</span>
-          <span class="bt-activity--status">Success</span>
-        </div> -->
+      <div class="summary">
+        <span class="summary-title">Activity</span>
+        <div class="summary-success">
+          <span class="summary-success-filter">Success</span>
+        </div>
+        <div class="summary-denied">
+          <span class="summary-denied-filter">Denied</span>
+        </div>
       </div>
-    </section>
+    </div>
+
+    <script type="module" src="./src/js/controller.js"></script>
   </body>
 </html>
