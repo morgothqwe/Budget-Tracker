@@ -39,11 +39,14 @@ To run the project locally:
 ## Folder Structure
 
 ```
-Budget-Tracker/
-├── index.html
-├── style.css
-├── script.js
-└── README.md
+budget-tracker/
+├── index.html         # Main HTML file with the app structure
+├── main.css           # Styles for layout, theming, and responsiveness
+├── config.js          # Configuration file with constants (e.g., local storage key)
+├── model.js           # Data management (state, transactions, local storage)
+├── view.js            # UI rendering and event handling
+├── controller.js      # Connects model and view, handles business logic
+└── README.md          # Project documentation
 ```
 
 ## How It Works
