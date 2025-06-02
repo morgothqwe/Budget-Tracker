@@ -15,6 +15,13 @@ const controlAddTransaction = function (transaction) {
   model.setLocalStorage();
 };
 
+const controlSummary = function (status) {
+  const summary = model.summaryTransaction(status);
+  if (Array.isArray(summary)) {
+    summary.forEach((el) => view.renderSummary(el));
+  }
+};
+
 const init = function () {
   // model.clearLocalStorage(); // Uncomment for testing reset
   model.loadLocalStorage();
@@ -27,6 +34,7 @@ const init = function () {
     view.renderBalance(total, income, expense);
   }
   view.addHandlerAddTransaction(controlAddTransaction);
+  view.addHandlerSummary(controlSummary);
 };
 
 init();

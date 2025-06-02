@@ -21,24 +21,30 @@ export const addTransaction = function (transaction) {
 };
 
 export const totalTransaction = function () {
-  return state.transaction.reduce(
-    (ac, el) => (el.type === "income" ? ac + el.amount : ac - el.amount),
-    0
-  );
+  return state.transaction.reduce((ac, el) => {
+    if (el.status !== "Success") return ac; // Ignore Denied transactions
+    return el.type === "income" ? ac + el.amount : ac - el.amount;
+  }, 0);
 };
 
 export const incomeTransaction = function () {
   return state.transaction.reduce(
-    (ac, el) => (el.type === "income" ? ac + el.amount : ac),
+    (ac, el) =>
+      el.type === "income" && el.status === "Success" ? ac + el.amount : ac,
     0
   );
 };
 
 export const expenseTransaction = function () {
   return state.transaction.reduce(
-    (ac, el) => (el.type === "expense" ? ac + el.amount : ac),
+    (ac, el) =>
+      el.type === "expense" && el.status === "Success" ? ac + el.amount : ac,
     0
   );
+};
+
+export const summaryTransaction = function (status) {
+  return state.transaction.filter((tr) => tr.status === status);
 };
 
 export const getTransaction = function () {

@@ -195,7 +195,11 @@ body {
   color: var(--color-text-secondary);
   cursor: pointer;
   padding-bottom: 0.4rem;
+}
+
+.bt-summary--selected {
   border-bottom: 2px solid var(--color-text-highlight);
+  color: var(--color-text-primary);
 }
 
 .bt-activity {
